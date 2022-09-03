@@ -1,4 +1,4 @@
-IMAGE_NAME=arm-gnu-env-final
+IMAGE_NAME=armnoneabi-dev
 CONTAINER_PROJECT_PATH=/project-root
 
 docker build \

@@ -7,6 +7,7 @@
  */
 // #include "stm32f446xx.h"
 #include <stdint.h>
+// #include "system_stm32f4xx.h"
 
 // extern uint32_t _stext;
 extern uint32_t _etext;
@@ -48,16 +49,26 @@ void reset_handler(void)
         dest++;
         src++;
     }
-
+    // SystemInit();
     main();
     while (1) {}
 }
 
+/* Defines a type for the ISR's in the vector table */
+typedef void (*element_t)(void);
+
+/* Defines a type for the vector table */
+typedef union {
+    element_t isr;   //all ISRs use this type
+    void *stack_top; //pointer to top of the stack
+} vector_table_t;
+
 __attribute__ ((section(".my_isr_vector")))
-void (* const interrupt_vector_table[])(void) =
+const vector_table_t interrupt_vector_table[] =
 {
-    (void *) &_estack,      // 0 - stack
+    {.stack_top = &_estack},
     reset_handler,          // 
+    (void *) &_estack,      // 0 - stack
     default_handler,        // nmi_handler
     default_handler,        // hardfault_handler
     default_handler,        // mem_manage_handler

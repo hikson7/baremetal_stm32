@@ -5,8 +5,7 @@ CONTAINER_PROJECT_PATH=/project-root
 HOST_USB_PORT=/dev/tty.usbserial-10
 CONTAINER_USB_PORT=/dev/ttyUSB0
 
-# TARGET_IMAGE_NAME=arm-gnu-env-short
-TARGET_IMAGE_NAME=arm-gnu-env-final
+TARGET_IMAGE_NAME=armnoneabi-dev
 EXEC_APP=bash
 
 docker run \
@@ -17,6 +16,7 @@ docker run \
     --privileged \
     $TARGET_IMAGE_NAME \
     $EXEC_APP
+
 # docker run \
 #     -it \
 #     --rm \

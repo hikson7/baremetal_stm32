@@ -1,9 +1,10 @@
 
 /* Set entry point */
 ENTRY(reset_handler)
+/* ENTRY(my_init) */
 
 /* Provide end of stack i.e. Highest address of user RAM */
-_estack = ORIGIN(sram) + LENGTH(sram);
+/* _estack = ORIGIN(sram) + LENGTH(sram); */
 
 MEMORY
 {
@@ -15,6 +16,9 @@ SECTIONS
 { 
     /* Contains code & constants. */
   
+    /* Provide end of stack i.e. Highest address of user RAM */
+    PROVIDE(    _estack = ORIGIN(sram) + LENGTH(sram)   );
+
     .text :
     {
         . = ALIGN(4);
