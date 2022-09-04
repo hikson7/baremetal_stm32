@@ -181,6 +181,10 @@ void SystemInit(void)
 #if defined(USER_VECT_TAB_ADDRESS)
   SCB->VTOR = VECT_TAB_BASE_ADDRESS | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal SRAM */
 #endif /* USER_VECT_TAB_ADDRESS */
+  // Examine 0x40002C00
+  // At reset: 0x0000007f
+  // Same value regardless..?
+
   // WWDG->CR &= ~WWDG_CR_WDGA;
 }
 

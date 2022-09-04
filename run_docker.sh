@@ -6,6 +6,7 @@ HOST_USB_PORT=/dev/tty.usbserial-10
 CONTAINER_USB_PORT=/dev/ttyUSB0
 
 TARGET_IMAGE_NAME=armnoneabi-dev
+# EXEC_APP=v2/build.sh
 EXEC_APP=bash
 
 docker run \

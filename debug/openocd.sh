@@ -1,0 +1,1 @@
+~/.platformio/packages/tool-openocd/bin/openocd --file openocd-config/stm32f4discovery.cfg

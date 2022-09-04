@@ -1,0 +1,1 @@
+~/.platformio/packages/toolchain-gccarmnoneeabi/bin/arm-none-eabi-gdb -f project/v2/build/minimal.elf
